@@ -1,7 +1,4 @@
-/**
- * The main View class. following MVC design, this class
- * displays the model
- */
+
 package mvc;
 
 import javax.swing.JFrame;
@@ -15,6 +12,10 @@ import javax.swing.JFileChooser;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 
+/**
+ * The main View class. following MVC design, this class
+ * displays the model
+ */
 public class FileManagerView extends JFrame {
 
 	public JFrame frameFileManager_;

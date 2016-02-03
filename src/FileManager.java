@@ -1,4 +1,10 @@
 
+
+
+import java.awt.EventQueue;
+
+import mvc.*;
+
 /**
 * This program displays a GUI that allows to run commands on files and folders.
 * The FileManager class constitutes the application's entry point. Initializes the model, controller and view.
@@ -6,12 +12,6 @@
 * @version 1.0
 * @since   2016-02-03
 */
-
-
-import java.awt.EventQueue;
-
-import mvc.*;
-
 public class FileManager {
 
 	/**

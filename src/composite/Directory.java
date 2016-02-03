@@ -1,7 +1,4 @@
-/**
- * Class that represents a composite Directory object, containing Directory and
- * FileLead objects.
- */
+
 
 package composite;
 
@@ -10,6 +7,10 @@ import java.util.ArrayList;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+/**
+ * Class that represents a composite Directory object, containing Directory and
+ * FileLead objects.
+ */
 public class Directory extends Node {
 	// Array that contains directories and files contained by this directory.
 	private ArrayList<Node> nodes_ = new ArrayList<Node>();

@@ -1,12 +1,13 @@
-/**
- * This commands returns the absolute path of a file or directory.
- */
+
 
 
 package commands;
 
 import java.io.File;
 
+/**
+ * This commands returns the absolute path of a file or directory.
+ */
 public class AbsolutePathCommand implements ICommand {
 
 	

@@ -1,15 +1,14 @@
-/**
- * Class loader.
- * Allows to dynamically load a class
- * Code largely taken from: http://examples.javacodegeeks.com/core-java/dynamic-class-loading-example/
- */
-
 package classLoader;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
+/**
+ * Class loader.
+ * Allows to dynamically load a class
+ * Code largely taken from: http://examples.javacodegeeks.com/core-java/dynamic-class-loading-example/
+ */
 public class JavaClassLoader extends ClassLoader {
 	
 	/**

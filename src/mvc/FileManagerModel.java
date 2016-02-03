@@ -1,7 +1,4 @@
-/**
- * The main Model class. following MVC design, this class
- * holds data to be accessed by the controller and displayed by the view
- */
+
 package mvc;
 
 import java.awt.Component;
@@ -15,7 +12,10 @@ import javax.swing.JTextField;
 
 import classLoader.JavaClassLoader;
 import composite.Node;
-
+/**
+ * The main Model class. following MVC design, this class
+ * holds data to be accessed by the controller and displayed by the view
+ */
 public class FileManagerModel {
 	
 	private Map<String, Node> nodeMap_ = new HashMap<String, Node>();

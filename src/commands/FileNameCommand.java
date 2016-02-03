@@ -1,10 +1,11 @@
-/**
- * This commands returns the file name of a node.
- */
+
 package commands;
 
 import java.io.File;
 
+/**
+ * This commands returns the file name of a node.
+ */
 public class FileNameCommand implements ICommand {
 	
 	@Override

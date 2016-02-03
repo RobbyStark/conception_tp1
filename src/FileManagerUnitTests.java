@@ -1,6 +1,4 @@
-/**
-* the FileManagerUnitTests class hosts a number of units tests covering each commands and node type combination.
-*/
+
 
 
 import static org.junit.Assert.*;
@@ -12,14 +10,15 @@ import org.junit.Test;
 import composite.*;
 import mvc.FileManagerModel;
 import commands.*;
-
+/**
+* the FileManagerUnitTests class hosts a number of units tests covering each commands and node type combination.
+*/
 public class FileManagerUnitTests {
 
-
-	@Test
 	/**
 	* Tests the AbsolutePathCommand on a FileLeaf node.
-	*/	
+	*/
+	@Test
 	public void file_path() {
 		
 		String name = "test.txt";
@@ -36,10 +35,10 @@ public class FileManagerUnitTests {
 				
 	}
 	
-	@Test
 	/**
 	* Tests the FileNameCommand on a FileLeaf node.
 	*/	
+	@Test
 	public void file_fileName() {
 		
 		String name = "test.txt";
@@ -57,10 +56,10 @@ public class FileManagerUnitTests {
 				
 	}
 	
-	@Test
 	/**
 	* Tests the FolderNameCommand on a FileLeaf node.
-	*/	
+	*/
+	@Test	
 	public void file_folderName() {
 		
 		String name = "test.txt";
@@ -78,10 +77,10 @@ public class FileManagerUnitTests {
 				
 	}
 
-	@Test
 	/**
 	* Tests the AbsolutePathCommand on a Directory node.
-	*/	
+	*/
+	@Test	
 	public void folder_path() {
 		
 		String name = "test";
@@ -98,10 +97,10 @@ public class FileManagerUnitTests {
 				
 	}
 	
-	@Test
 	/**
 	* Tests the FileNameCommand on a Directory node.
-	*/	
+	*/
+	@Test	
 	public void folder_fileName() {
 		
 		String name = "test.txt";
@@ -119,10 +118,11 @@ public class FileManagerUnitTests {
 				
 	}
 	
-	@Test
+
 	/**
 	* Tests the FolderNameCommand on a Directory node.
-	*/	
+	*/
+	@Test	
 	public void folder_folderName() {
 		
 		String name = "test.txt";

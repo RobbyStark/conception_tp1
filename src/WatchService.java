@@ -1,7 +1,4 @@
-/**
- * Notifies its controller in case of file changes.
- * Code largely taken from: /http://www.codejava.net/java-se/file-io/file-change-notification-example-with-watch-service-api
- */
+
 
 
 import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
@@ -18,7 +15,10 @@ import java.nio.file.WatchKey;
 
 import mvc.FileManagerController;
 
-
+/**
+ * Notifies its controller in case of file changes.
+ * Code largely taken from: /http://www.codejava.net/java-se/file-io/file-change-notification-example-with-watch-service-api
+ */
 public class WatchService implements Runnable {
 	
 	private FileManagerController fileManagerController_;
@@ -34,7 +34,6 @@ public class WatchService implements Runnable {
 	
 	/**
 	 * Registers the /src/commands/ directory to the watch service. 
-	 * @param Nothing
 	 * @return Nothing
 	 */
 	public void run() {

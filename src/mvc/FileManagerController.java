@@ -1,7 +1,4 @@
-/**
- * The main Controller class. following MVC design, this class
- * can send update commands to the model and view.
- */
+
 package mvc;
 
 import java.awt.Component;
@@ -29,6 +26,10 @@ import composite.Directory;
 import composite.FileLeaf;
 import composite.Node;
 
+/**
+ * The main Controller class. following MVC design, this class
+ * can send update commands to the model and view.
+ */
 public class FileManagerController {
 	
 	private FileManagerView fileManagerView_;

@@ -1,11 +1,12 @@
-/**
- * Abstract interface for all commands.
- */
+
 
 package commands;
 
 import java.io.File;
 
+/**
+ * Abstract interface for all commands.
+ */
 public abstract interface ICommand {
 	
 	/**
@@ -17,14 +18,12 @@ public abstract interface ICommand {
 	
 	/**
 	 * This method returns whether or not this command can be invoked of folders.
-	 * @param Nothing
 	 * @return true if the command supports folders
 	 */
 	public boolean getSupportFolder();
 	
 	/**
 	 * This method returns whether or not this command can be invoked on files.
-	 * @param Nothing
 	 * @return true if the command supports files
 	 */
 	public boolean getSupportFile();

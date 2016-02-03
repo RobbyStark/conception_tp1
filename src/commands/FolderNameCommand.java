@@ -1,10 +1,11 @@
-/**
- * This commands returns the folder name of a node.
- */
 
 package commands;
 
 import java.io.File;
+
+/**
+ * This commands returns the folder name of a node.
+ */
 
 public class FolderNameCommand implements ICommand {
 

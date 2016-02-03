@@ -1,7 +1,4 @@
-/**
- * Class that acts as an interface for the Directory and FileLead classes, represents
- * the tree structure of the tree component.
- */
+
 
 package composite;
 
@@ -9,6 +6,10 @@ import java.io.File;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+/**
+ * Class that acts as an interface for the Directory and FileLead classes, represents
+ * the tree structure of the tree component.
+ */
 public abstract class Node {
 	// File handle of the node.
 	File file_;
@@ -18,7 +19,6 @@ public abstract class Node {
 		
 	/**
 	 * Returns the File handle of the node.
-	 * @param Nothing
 	 * @return the File handle of the node.
 	 */
 	public File getFileHandle() {
@@ -27,7 +27,6 @@ public abstract class Node {
 	
 	/**
 	 * Return the object within the tree component.
-	 * @param Nothing
 	 * @return the object within the tree component.
 	 */
 	public DefaultMutableTreeNode getTreeNode() {

@@ -97,14 +97,13 @@ public class FileManagerModel {
 		}
 	}
 	
-	public void runCommand(String commandName) {
+	public String runCommand(String commandName) {
 		// Use the class loader to run the command.
 		JavaClassLoader javaClassLoader = new JavaClassLoader();
 		String commandResult = javaClassLoader.invokeRunMethod("commands." + commandName, nodeSelected_.getFileHandle());
 		
-		// Update the corresponding text field.
-		JTextField textField = (JTextField) textFieldComponentMap_.get(commandName);
-		textField.setText(commandResult);
+		// Update the result of the command.
+		return commandResult;
 	}
 	
 	/*
@@ -142,5 +141,9 @@ public class FileManagerModel {
 	
 	public File getFileHandle(String name) {
 		return nodeMap_.get(name).getFileHandle();
+	}
+	
+	JTextField getTextFieldComponent(String componentName) {
+		return (JTextField) textFieldComponentMap_.get(componentName);
 	}
 }

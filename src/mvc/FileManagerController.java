@@ -184,7 +184,9 @@ public class FileManagerController {
 	 */
 	class CommandButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			fileManagerModel_.runCommand(((JButton) e.getSource()).getName());
+			String commandName = ((JButton) e.getSource()).getName();
+			String commandResult = fileManagerModel_.runCommand(commandName);
+			fileManagerModel_.getTextFieldComponent(commandName).setText(commandResult);
 		}
 	}
 }

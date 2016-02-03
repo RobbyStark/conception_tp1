@@ -1,9 +1,15 @@
+/**
+ * This commands returns the absolute path of a file or directory.
+ */
+
+
 package commands;
 
 import java.io.File;
 
 public class AbsolutePathCommand implements ICommand {
 
+	
 	@Override
 	public String run(File file) {
 		return file.getAbsolutePath();

@@ -1,3 +1,7 @@
+/**
+ * The main Controller class. following MVC design, this class
+ * can send update commands to the model and view.
+ */
 package mvc;
 
 import java.awt.Component;
@@ -30,8 +34,10 @@ public class FileManagerController {
 	private FileManagerView fileManagerView_;
 	private FileManagerModel fileManagerModel_;
 	
-	/*
+	/**
 	 * Class constructor.
+	 * @param fileManagerView the associated view.
+	 * @param fileManagerModel the associated model.
 	 */
 	public FileManagerController(FileManagerView fileManagerView, FileManagerModel fileManagerModel) {
 		this.fileManagerView_ = fileManagerView;
@@ -43,8 +49,10 @@ public class FileManagerController {
 		this.fileManagerView_.registerAutoRunListener(new AutoRunListener());
 	}
 	
-	/*
+	/**
 	 * Scans the commands directory for classes and load the commands.
+	 * @param None
+	 * @return Nothing
 	 */
 	public void updateCommands() {
 		try {
@@ -57,8 +65,6 @@ public class FileManagerController {
 			fileManagerView_.panelCommands_.removeAll();
 			fileManagerModel_.clearButtonMap();
 			fileManagerModel_.clearTextFieldMap();
-			
-			System.out.println("dsf");
 			
 			String filePath = new File("").getAbsolutePath().concat("/src/commands/");						
 			File commandsDir = new File(filePath);
@@ -111,14 +117,17 @@ public class FileManagerController {
 		}
 		catch (NullPointerException e) {
 			// The commands directory is invalid.
-			System.out.println("The specified commands directory is invalid.");
 		}
 	}
 	
-	/*
+	/**
 	 * Action listener for the update root button.
 	 */
 	class UpdateRootListener implements ActionListener {
+	/**
+	 * This method performs an action event
+	 * @param e the action event to be prformed
+	*/
 		public void actionPerformed(ActionEvent e) {
 			// Open the file chooser.
 			if (fileManagerView_.fileChooser_.showOpenDialog(fileManagerView_.frameFileManager_) == JFileChooser.APPROVE_OPTION) {
@@ -160,29 +169,42 @@ public class FileManagerController {
 		}
 	}
 	
-	/*
+	/**
 	 * Action listener for the clear button.
 	 */
 	class ClearListener implements ActionListener {
+		
+	/**
+	 * This method performs an action event
+	 * @param e the action event to be prformed
+	 */
 		public void actionPerformed(ActionEvent e) {
 			fileManagerModel_.clearCommandsResult();
 		}
 	}
 	
-	/*
+	/**
 	 * Action listener for the autorun checkbox.
 	 */
 	class AutoRunListener implements ActionListener {
+	/**
+	 * This method performs an action event
+	 * @param e the action event to be prformed
+	 */
 		public void actionPerformed(ActionEvent e) {
 			// Sets the model attribute.
 			fileManagerModel_.setAutoRun(((JCheckBox) e.getSource()).isSelected());
 		}
 	}
 	
-	/*
+	/**
 	 * Action listener for the command buttons.
 	 */
 	class CommandButtonListener implements ActionListener {
+	/**
+	 * This method performs an action event
+	 * @param e the action event to be prformed
+	 */
 		public void actionPerformed(ActionEvent e) {
 			String commandName = ((JButton) e.getSource()).getName();
 			String commandResult = fileManagerModel_.runCommand(commandName);

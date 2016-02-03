@@ -1,3 +1,7 @@
+/**
+ * The main Model class. following MVC design, this class
+ * holds data to be accessed by the controller and displayed by the view
+ */
 package mvc;
 
 import java.awt.Component;
@@ -22,23 +26,37 @@ public class FileManagerModel {
 	private Node nodeSelected_;
 	private boolean autoRun_ = false;
 	
-	/*
+	/**
 	 * Set the root of the internal file system.
+	 * @param node the root node
+	 * @return Nothing
 	 */
 	public void setRoot(Node node) {
 		root_ = node;
 	}
-	
+
+	/**
+	 * Sets the selected node
+	 * @param node the selected node
+	 * @return Nothing
+	 */
 	public void setNodeSelected(Node node) {
 		nodeSelected_ = node;
 	}
-	
+
+	/**
+	 * Sets the autorun function's state
+	 * @param autoRun sets the autorun function's state
+	 * @return Nothing
+	 */
 	public void setAutoRun(boolean autoRun) {
 		autoRun_ = autoRun;
 	}
 	
-	/*
+	/**
 	 * Method called when one tree node elements is clicked. Updates the buttons availability.
+	 * @param name The name of the clicked node
+	 * @return Nothing
 	 */
 	public void updateSelectedNode(String name) {
 		// Obtain the File handle for this node.
@@ -53,10 +71,7 @@ public class FileManagerModel {
 			String commandName = pair.getKey().toString();
 			boolean supportFolder = javaClassLoader.invokeVerificationMethod("commands." + commandName, "getSupportFolder");
 			boolean supportFile = javaClassLoader.invokeVerificationMethod("commands." + commandName, "getSupportFile");
-			
-			if (supportFolder) {
-				System.out.println("fold");
-			}
+
 			
 			// Enable the button dependently if the command supports the file type.
 			JButton button = (JButton) pair.getValue();
@@ -73,9 +88,11 @@ public class FileManagerModel {
 		}
 	}
 	
-	/*
+	/**
 	 * Update the internal file system by recursively walking through directories
 	 * and sub-directories. Uses a composite design pattern.
+	 * @param node the root node of the tree on which to perform the update
+	 * @return Nothing
 	 */
 	public void updateInternalFileSystem(Node node) {
 		File fileHandle = node.getFileHandle();
@@ -96,7 +113,11 @@ public class FileManagerModel {
 			}
 		}
 	}
-	
+	/**
+	 * runs the command
+	 * @param commandName the name of the command
+	 * @return the command's result
+	 */	
 	public String runCommand(String commandName) {
 		// Use the class loader to run the command.
 		JavaClassLoader javaClassLoader = new JavaClassLoader();
@@ -106,8 +127,9 @@ public class FileManagerModel {
 		return commandResult;
 	}
 	
-	/*
+	/**
 	 * Method to clear the text field content.
+	 * @return Nothing
 	 */
 	public void clearCommandsResult() {
 		// Iterate over all text fields and clear it.
@@ -118,31 +140,60 @@ public class FileManagerModel {
 			textField.setText("");
 		}
 	}
-	
+	/**
+	 * Method to add a component to the button map
+	 * @param name the component's name
+	 * @param component the component to add
+	 * @return Nothing
+	 */	
 	public void addComponentToButtonMap(String name, Component component) {
 		buttonComponentMap_.put(name, component);
 	}
-	
+	/**
+	 * Method to add a component to the text field's map
+	 * @param name the component's name
+	 * @param component the component to add
+	 * @return Nothing
+	 */	
 	public void addComponentToTextFieldMap(String name, Component component) {
 		textFieldComponentMap_.put(name, component);
 	}
-	
+	/**
+	 * Method to add a node the nodes map
+	 * @param name the node's name
+	 * @param node the node to add
+	 * @return Nothing
+	 */	
 	public void addNodetoNodeMap(String name, Node node) {
 		nodeMap_.put(name,  node);
 	}
-	
+	/**
+	 * Method to clear the button map.
+	 * @return Nothing
+	 */	
 	public void clearButtonMap() {
 		buttonComponentMap_.clear();
 	}
-	
+	/**
+	 * Method to clear the text field map.
+	 * @return Nothing
+	 */	
 	public void clearTextFieldMap() {
 		textFieldComponentMap_.clear();
 	}
-	
+	/**
+	 * Method to get the file handle.
+	 * @param name the name of the file
+	 * @return the file handle
+	 */	
 	public File getFileHandle(String name) {
 		return nodeMap_.get(name).getFileHandle();
 	}
-	
+	/**
+	 * Method to get the textfield component
+	 * @param componentName the name of the component on which to get the text field
+	 * @return the textfield component
+	 */	
 	JTextField getTextFieldComponent(String componentName) {
 		return (JTextField) textFieldComponentMap_.get(componentName);
 	}

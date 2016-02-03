@@ -1,3 +1,7 @@
+/**
+ * The main View class. following MVC design, this class
+ * displays the model
+ */
 package mvc;
 
 import javax.swing.JFrame;
@@ -58,22 +62,28 @@ public class FileManagerView extends JFrame {
 		fileChooser_.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 	}
 	
-	/*
-	 * Method to register a new action listener for the update root button.
+	/**
+	 * Method to register a new action listener for the select root button.
+	 * @param actionListener the event listener for the select root button
+	 * @return Nothing
 	 */
 	public void registerUpdateRootListener(ActionListener actionListener) {
 		btnSelectRoot_.addActionListener(actionListener);
 	}
 	
-	/*
+	/**
 	 * Method to register a new action listener for the clear button.
+	 * @param actionListener the event listener for the clear button
+	 * @return Nothing
 	 */
 	public void registerClearListener(ActionListener actionListener) {
 		btnClear_.addActionListener(actionListener);
 	}
 	
-	/*
+	/**
 	 * Method to register a new action listener for the autorun checkbox.
+	 * @param actionListener the event listener for the autorun checkbox
+	 * @return Nothing
 	 */
 	public void registerAutoRunListener(ActionListener actionListener) {
 		chckbxAutoRun_.addActionListener(actionListener);

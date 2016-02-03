@@ -1,3 +1,6 @@
+/**
+ * This commands returns the file name of a node.
+ */
 package commands;
 
 import java.io.File;

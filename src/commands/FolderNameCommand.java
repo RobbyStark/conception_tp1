@@ -1,3 +1,7 @@
+/**
+ * This commands returns the folder name of a node.
+ */
+
 package commands;
 
 import java.io.File;

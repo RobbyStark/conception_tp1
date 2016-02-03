@@ -80,7 +80,8 @@ public class FileManagerModel {
 				
 				// If autorun is enabled, execute the command.
 				if (autoRun_) {
-					runCommand(commandName);
+					String commandResult = runCommand(commandName);
+					getTextFieldComponent(commandName).setText(commandResult);
 				}
 			} else {
 				button.setEnabled(false);

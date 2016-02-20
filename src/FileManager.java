@@ -16,6 +16,7 @@ public class FileManager {
 
 	/**
 	 * Application's entry point.
+	 * @param args args
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

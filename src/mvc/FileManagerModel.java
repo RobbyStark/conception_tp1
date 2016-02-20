@@ -22,23 +22,12 @@ public class FileManagerModel {
 	private Map<String, Component> buttonComponentMap_ = new HashMap<String, Component>();
 	private Map<String, Component> textFieldComponentMap_ = new HashMap<String, Component>();
 	
-	private Node root_;	
 	private Node nodeSelected_;
 	private boolean autoRun_ = false;
-	
-	/**
-	 * Set the root of the internal file system.
-	 * @param node the root node
-	 * @return Nothing
-	 */
-	public void setRoot(Node node) {
-		root_ = node;
-	}
 
 	/**
 	 * Sets the selected node
 	 * @param node the selected node
-	 * @return Nothing
 	 */
 	public void setNodeSelected(Node node) {
 		nodeSelected_ = node;
@@ -47,7 +36,6 @@ public class FileManagerModel {
 	/**
 	 * Sets the autorun function's state
 	 * @param autoRun sets the autorun function's state
-	 * @return Nothing
 	 */
 	public void setAutoRun(boolean autoRun) {
 		autoRun_ = autoRun;
@@ -56,7 +44,6 @@ public class FileManagerModel {
 	/**
 	 * Method called when one tree node elements is clicked. Updates the buttons availability.
 	 * @param name The name of the clicked node
-	 * @return Nothing
 	 */
 	public void updateSelectedNode(String name) {
 		// Obtain the File handle for this node.
@@ -93,24 +80,28 @@ public class FileManagerModel {
 	 * Update the internal file system by recursively walking through directories
 	 * and sub-directories. Uses a composite design pattern.
 	 * @param node the root node of the tree on which to perform the update
-	 * @return Nothing
 	 */
 	public void updateInternalFileSystem(Node node) {
 		File fileHandle = node.getFileHandle();
-		if (fileHandle.isDirectory()) {
-			for (File subFile : fileHandle.listFiles()) {
-				Node newNode;
-				if (subFile.isDirectory()) {
-					// Add directory and recursively walk through it.
-					newNode = node.addDirectory(subFile);
-					updateInternalFileSystem(newNode);
-				} else {
-					// Add the file to the node.
-					newNode = node.addFileLeaf(subFile);
+		if (fileHandle != null) {
+			if (fileHandle.isDirectory()) {
+				for (File subFile : fileHandle.listFiles()) {
+					if (subFile != null) {
+						Node newNode;
+						if (subFile.isDirectory()) {
+							// Add directory and recursively walk through it.
+							newNode = node.addDirectory(subFile);
+							updateInternalFileSystem(newNode);
+						} else {
+							// Add the file to the node.
+							newNode = node.addFileLeaf(subFile);
+						}
+						
+						// Add file to map.
+						nodeMap_.put(subFile.getName(), newNode);
+					}
+					
 				}
-				
-				// Add file to map.
-				nodeMap_.put(subFile.getName(), newNode);
 			}
 		}
 	}
@@ -130,7 +121,6 @@ public class FileManagerModel {
 	
 	/**
 	 * Method to clear the text field content.
-	 * @return Nothing
 	 */
 	public void clearCommandsResult() {
 		// Iterate over all text fields and clear it.
@@ -145,7 +135,6 @@ public class FileManagerModel {
 	 * Method to add a component to the button map
 	 * @param name the component's name
 	 * @param component the component to add
-	 * @return Nothing
 	 */	
 	public void addComponentToButtonMap(String name, Component component) {
 		buttonComponentMap_.put(name, component);
@@ -154,7 +143,6 @@ public class FileManagerModel {
 	 * Method to add a component to the text field's map
 	 * @param name the component's name
 	 * @param component the component to add
-	 * @return Nothing
 	 */	
 	public void addComponentToTextFieldMap(String name, Component component) {
 		textFieldComponentMap_.put(name, component);
@@ -163,21 +151,18 @@ public class FileManagerModel {
 	 * Method to add a node the nodes map
 	 * @param name the node's name
 	 * @param node the node to add
-	 * @return Nothing
 	 */	
 	public void addNodetoNodeMap(String name, Node node) {
 		nodeMap_.put(name,  node);
 	}
 	/**
 	 * Method to clear the button map.
-	 * @return Nothing
 	 */	
 	public void clearButtonMap() {
 		buttonComponentMap_.clear();
 	}
 	/**
 	 * Method to clear the text field map.
-	 * @return Nothing
 	 */	
 	public void clearTextFieldMap() {
 		textFieldComponentMap_.clear();

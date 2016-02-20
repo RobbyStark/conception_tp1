@@ -26,7 +26,6 @@ public class WatchService implements Runnable {
 	/**
 	 * Constructor method
 	 * @param fileManagerController the Controller to be notified in case of file changes.
-	 * @return Nothing
 	 */
 	public WatchService(FileManagerController fileManagerController) {
 		fileManagerController_ = fileManagerController;
@@ -34,7 +33,6 @@ public class WatchService implements Runnable {
 	
 	/**
 	 * Registers the /src/commands/ directory to the watch service. 
-	 * @return Nothing
 	 */
 	public void run() {
 		try {

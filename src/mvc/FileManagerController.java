@@ -1,14 +1,11 @@
-
 package mvc;
 
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -21,7 +18,6 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
-import classLoader.JavaClassLoader;
 import composite.Directory;
 import composite.FileLeaf;
 import composite.Node;
@@ -52,14 +48,9 @@ public class FileManagerController {
 	
 	/**
 	 * Scans the commands directory for classes and load the commands.
-	 * @param None
-	 * @return Nothing
 	 */
 	public void updateCommands() {
 		try {
-			// Create a new JavaClassLoader 
-			ClassLoader classLoader = this.getClass().getClassLoader();
-			
 			int gridy = 0;
 			
 			// Empty the commands panel and model data.
@@ -73,9 +64,6 @@ public class FileManagerController {
 			File[] commandsFiles = commandsDir.listFiles();
 			for (File file : commandsFiles) {
 				if ((file.isFile()) && (!file.getName().contains("ICommand.java")) && (file.getName().endsWith(".java"))) {
-					// Add command.
-					//fileManagerModel_.addCommand(new ICommand);
-					
 					// Add command button.
 					GridBagConstraints gbc = new GridBagConstraints();
 					gbc.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -118,6 +106,7 @@ public class FileManagerController {
 		}
 		catch (NullPointerException e) {
 			// The commands directory is invalid.
+			System.out.println("The /commands directory is empty.");
 		}
 	}
 	
@@ -127,7 +116,7 @@ public class FileManagerController {
 	class UpdateRootListener implements ActionListener {
 	/**
 	 * This method performs an action event
-	 * @param e the action event to be prformed
+	 * @param e the action event to be performed
 	*/
 		public void actionPerformed(ActionEvent e) {
 			// Open the file chooser.
@@ -141,7 +130,6 @@ public class FileManagerController {
 				} else {
 					root = new FileLeaf(file);
 				}
-				fileManagerModel_.setRoot(root);
 				root.setTreeNode(treeNode);
 				fileManagerModel_.updateInternalFileSystem(root);
 				fileManagerModel_.addNodetoNodeMap(file.getName(), root);
@@ -177,7 +165,7 @@ public class FileManagerController {
 		
 	/**
 	 * This method performs an action event
-	 * @param e the action event to be prformed
+	 * @param e the action event to be performed
 	 */
 		public void actionPerformed(ActionEvent e) {
 			fileManagerModel_.clearCommandsResult();
@@ -190,7 +178,7 @@ public class FileManagerController {
 	class AutoRunListener implements ActionListener {
 	/**
 	 * This method performs an action event
-	 * @param e the action event to be prformed
+	 * @param e the action event to be performed
 	 */
 		public void actionPerformed(ActionEvent e) {
 			// Sets the model attribute.
@@ -204,7 +192,7 @@ public class FileManagerController {
 	class CommandButtonListener implements ActionListener {
 	/**
 	 * This method performs an action event
-	 * @param e the action event to be prformed
+	 * @param e the action event to be performed
 	 */
 		public void actionPerformed(ActionEvent e) {
 			String commandName = ((JButton) e.getSource()).getName();

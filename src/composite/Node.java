@@ -36,7 +36,6 @@ public abstract class Node {
 	/**
 	 * Set the object within the tree component.
 	 * @param treeNode the tree represented in this Node object
-	 * @return Nothing
 	 */
 	public void setTreeNode(DefaultMutableTreeNode treeNode) {
 		treeNode_ = treeNode;
@@ -45,6 +44,7 @@ public abstract class Node {
 	/**
 	 * Adds a new directory to the node. This method as to be overloaded by the Directory child class
 	 * @param node the new directory to be added to this Node object
+	 * @return the node which failed to be added
 	 */
 	public Node addDirectory(File node) {
 		throw new UnsupportedOperationException();
@@ -53,6 +53,7 @@ public abstract class Node {
 	/**
 	 * Adds a new file (leaf) to the node. This method as to be overloaded by the Directory child class
 	 * @param node the new file to be added to this Node object
+	 * @return the node which failed to be added
 	 */
 	public Node addFileLeaf(File node) {
 		throw new UnsupportedOperationException();

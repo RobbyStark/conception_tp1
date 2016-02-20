@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
  * displays the model
  */
 public class FileManagerView extends JFrame {
-
+	private static final long serialVersionUID = 1L;
 	public JFrame frameFileManager_;
 	public JScrollPane scrollPanelFileManager_;
 	public JButton btnSelectRoot_;
@@ -66,7 +66,6 @@ public class FileManagerView extends JFrame {
 	/**
 	 * Method to register a new action listener for the select root button.
 	 * @param actionListener the event listener for the select root button
-	 * @return Nothing
 	 */
 	public void registerUpdateRootListener(ActionListener actionListener) {
 		btnSelectRoot_.addActionListener(actionListener);
@@ -75,7 +74,6 @@ public class FileManagerView extends JFrame {
 	/**
 	 * Method to register a new action listener for the clear button.
 	 * @param actionListener the event listener for the clear button
-	 * @return Nothing
 	 */
 	public void registerClearListener(ActionListener actionListener) {
 		btnClear_.addActionListener(actionListener);
@@ -84,7 +82,6 @@ public class FileManagerView extends JFrame {
 	/**
 	 * Method to register a new action listener for the autorun checkbox.
 	 * @param actionListener the event listener for the autorun checkbox
-	 * @return Nothing
 	 */
 	public void registerAutoRunListener(ActionListener actionListener) {
 		chckbxAutoRun_.addActionListener(actionListener);
